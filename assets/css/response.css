@@ -292,6 +292,7 @@
   .hero__image > img:first-child {
     width: 90%;
     margin: 0px auto;
+    height: 420px;
   }
   .hero__heading {
     font-size: 3rem;
