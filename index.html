@@ -35,8 +35,14 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- nhúng icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <!-- main css -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/response.css" />
     <title>Shine</title>
   </head>
   <body>
@@ -52,7 +58,7 @@
             </div>
           </div>
           <nav class="nav">
-            <ul class="nav__list">
+            <ul class="nav__list" id="navbar__list--pc">
               <li class="nav__item active"><a href="#!">Home</a></li>
               <li class="nav__item"><a href="#!">Services</a></li>
               <li class="nav__item"><a href="#!">About</a></li>
@@ -81,6 +87,37 @@
         </article>
       </div>
     </header>
+    <!-- tablets / mobile header -->
+    <div class="moblie-">
+      <input type="checkbox" name="menu-checkbox" id="menu-checkbox" class="menu-checkbox" hidden />
+      <!-- tablets/ mobile menu -->
+      <label for="menu-checkbox"><i class="fa-solid fa-bars menu-header__icon"></i></label>
+      <!-- lớp phủ : overlay  -->
+      <label for="menu-checkbox" class="menu-overlay"> </label>
+
+      <!-- menu contetn -->
+      <div class="menu-drawer">
+        <div class="menu-drawer__top">
+          <!-- logo -->
+          <img src="./assets/image/logo shine.svg" alt="shine" class="header__logo--image" />
+
+          <!-- icon close menu -->
+          <label for="menu-checkbox"
+            ><i class="fa-regular fa-rectangle-xmark menu-drawer__close"></i
+          ></label>
+        </div>
+        <ul id="navbar__list--mobile"></ul>
+        <div class="btn-mobile">
+          <a href="" class="btn-mobile--login">Log In</a>
+          <a href="" class="btn-mobile--signup">Sign Up</a>
+        </div>
+        <script>
+          const navPc = document.querySelector('#navbar__list--pc')
+          const navMoblie = document.querySelector('#navbar__list--mobile')
+          navMoblie.innerHTML = navPc.innerHTML
+        </script>
+      </div>
+    </div>
     <!-- ======================= main =========================== -->
     <main>
       <!-- ====================== service =========================== -->
@@ -496,7 +533,7 @@
             </p>
           </div>
           <!-- group 1  -->
-          <div class="footer-group">
+          <div class="footer-group footer-hidden-tablet">
             <h5 class="footer-group__heading">Support</h5>
             <span>Help center</span>
             <span>Account information</span>
@@ -508,7 +545,7 @@
               <span>Account information</span>
             </div>
           </div>
-          <div class="footer-group">
+          <div class="footer-group footer-hidden-tablet">
             <h5 class="footer-group__heading">Support</h5>
             <span>Help center</span>
             <span>Account information</span>
